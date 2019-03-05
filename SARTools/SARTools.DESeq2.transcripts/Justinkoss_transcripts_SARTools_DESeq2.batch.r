@@ -23,7 +23,7 @@ featuresToRemove <- c("NULL")                        # names of the features to 
 
 varInt <- "Treatment"                                    # factor of interest
 condRef <- "Untreated"                                      # reference biological condition
-batch <- NULL                                        # blocking factor: NULL (default) or "batch" for example
+batch <- "batch"                                       # blocking factor: NULL (default) or "batch" for example
 
 idColumn = 1                                         # column with feature Ids (usually 1)
 countColumn = 5                                      # column with counts  (2 for htseq-count, 7 for featurecounts, 5 for RSEM/Salmon, 4 for kallisto)
