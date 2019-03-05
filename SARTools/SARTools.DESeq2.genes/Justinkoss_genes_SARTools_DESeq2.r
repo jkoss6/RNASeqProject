@@ -10,23 +10,23 @@
 ################################################################################
 rm(list=ls())                                        # remove all the objects from the R session
 
-workDir <- "C:/path/to/your/working/directory/"      # working directory for the R session
+workDir <- "~/Desktop/Biol364L/RNASeqProject/SARTools/SARTools.DESeq2.genes"      # working directory for the R session
 
-projectName <- "projectName"                         # name of the project
-author <- "Your name"                                # author of the statistical analysis/report
+projectName <- "SARTools.DESeq2.genes"                         # name of the project
+author <- "Justin Koss"                                # author of the statistical analysis/report
 
-targetFile <- "target.txt"                           # path to the design/target file
-rawDir <- "raw"                                      # path to the directory containing raw counts files
-featuresToRemove <- c("alignment_not_unique",        # names of the features to be removed
-                      "ambiguous", "no_feature",     # (specific HTSeq-count information and rRNA for example)
-                      "not_aligned", "too_low_aQual")# NULL if no feature to remove
+targetFile <- "../genes.target.txt"                           # path to the design/target file
+rawDir <- "../"                                      # path to the directory containing raw counts files
+featuresToRemove <- c("NULL")                        # names of the features to be removed
+                                                     # (specific HTSeq-count information and rRNA for example)
+                                                     # NULL if no feature to remove
 
-varInt <- "group"                                    # factor of interest
-condRef <- "WT"                                      # reference biological condition
+varInt <- "Treatment"                                    # factor of interest
+condRef <- "Untreated"                                      # reference biological condition
 batch <- NULL                                        # blocking factor: NULL (default) or "batch" for example
 
 idColumn = 1                                         # column with feature Ids (usually 1)
-countColumn = 2                                      # column with counts  (2 for htseq-count, 7 for featurecounts, 5 for RSEM/Salmon, 4 for kallisto)
+countColumn = 5                                      # column with counts  (2 for htseq-count, 7 for featurecounts, 5 for RSEM/Salmon, 4 for kallisto)
 rowSkip = 0                                          # rows to skip (not including header) 
 
 fitType <- "parametric"                              # mean-variance relationship: "parametric" (default), "local" or "mean"
