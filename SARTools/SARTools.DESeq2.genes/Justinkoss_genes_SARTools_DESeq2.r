@@ -49,7 +49,6 @@ forceCairoGraph <- FALSE
 setwd(workDir)
 
 if (!require("BiocManager")) install.packages("BiocManager"); library(BiocManager)
-install.packages("XML")
 if (!require("DESeq2")) BiocManager::install("DESeq2"); library(DESeq2)
 if (!require("edgeR")) BiocManager::install("edgeR"); library(edgeR)
 if (!require("genefilter")) BiocManager::install("genefilter"); library(genefilter)
