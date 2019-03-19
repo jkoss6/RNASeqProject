@@ -15,13 +15,13 @@ library(debrowser)
 if (!require("tidyverse")) install.packages("tidyverse"); library(tidyverse)
 
 # List the count files. You may need to change the path and pattern to match your files.
-genefilelist <- list.files(path="SARTools", pattern="*.genes.tsv", full.names=T)
+genefilelist <- list.files(path="SARTools.sailfish", pattern="*.genes.tsv", full.names=T)
 print(genefilelist)
 genefiles <- lapply(genefilelist, read_tsv)
 
 # Use grep to change the file names into shorter sample names
-samplenames <- gsub("SARTools/S2_DRSC_CG8144_", "", genefilelist)
-samplenames <- gsub("SARTools/S2_DRSC_","", samplenames)
+samplenames <- gsub("SARTools.sailfish/S2_DRSC_CG8144_", "", genefilelist)
+samplenames <- gsub("SARTools.sailfish/S2_DRSC_","", samplenames)
 samplenames <- gsub(".genes.tsv", "", samplenames)
 samplenames <- gsub("-","_", samplenames) # DEBrowser doesn't like -
 samplenames
@@ -41,7 +41,7 @@ write_tsv(genetable, path="genetable.tsv")
 
 ### Now repeat all of that for the transcript files
 
-transcriptfilelist <- list.files(path="SARTools", pattern="*.transcripts.tsv", full.names=T)
+transcriptfilelist <- list.files(path="SARTools.sailfish", pattern="*.transcripts.tsv", full.names=T)
 transcriptfiles <- lapply(transcriptfilelist, read_tsv)
 
 transcriptfiles %>%
@@ -54,7 +54,7 @@ str(transcripttable)
 write_tsv(transcripttable, path="transcripttable.tsv")
 
 ## Also need to reformat the target.txt file to match the sample names
-transcripts_target <- read_delim("SARTools/transcripts.target.txt", 
+transcripts_target <- read_delim("SARTools.sailfish/transcripts.target.txt", 
                                  "\t", escape_double = FALSE, trim_ws = TRUE)
 transcripts_target
 colnames(transcripttable) <- gsub("-","_", colnames(transcripttable))
