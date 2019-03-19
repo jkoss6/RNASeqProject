@@ -10,19 +10,19 @@
 ################################################################################
 rm(list=ls())                                        # remove all the objects from the R session
 
-workDir <- "~/Desktop/RNASeqProject/SARTools/SARTools.DESeq2.genes"      # working directory for the R session
+workDir <- "~/Desktop/Biol364L/jkoss6 repo real/SARTools (sailfish)/SARTools.DESeq2.genes"      # working directory for the R session
 
 projectName <- "SARTools.DESeq2.genes"                         # name of the project
 author <- "Justin Koss"                                # author of the statistical analysis/report
 
 targetFile <- "../genes.target.txt"                           # path to the design/target file
 rawDir <- "../"                                      # path to the directory containing raw counts files
-featuresToRemove <- c("NULL")                        # names of the features to be removed
-                                                     # (specific HTSeq-count information and rRNA for example)
-                                                     # NULL if no feature to remove
+featuresToRemove <- c("NULL")        # names of the features to be removed
+                           # (specific HTSeq-count information and rRNA for example)
+                      # NULL if no feature to remove
 
-varInt <- "Treatment"                                    # factor of interest
-condRef <- "Untreated"                                      # reference biological condition
+varInt <- "group"                                    # factor of interest
+condRef <- "WT"                                      # reference biological condition
 batch <- NULL                                        # blocking factor: NULL (default) or "batch" for example
 
 idColumn = 1                                         # column with feature Ids (usually 1)
